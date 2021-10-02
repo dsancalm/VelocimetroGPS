@@ -52,7 +52,7 @@
                 android:gravity="center"
                 android:text="@string/Distancia"
                 android:textColor="#000000"
-                android:textSize="24sp"/>
+                android:textSize="24sp" />
         </TableRow>
 
         <TableRow
@@ -67,7 +67,7 @@
                 android:gravity="center"
                 android:textColor="#000000"
                 android:textSize="48sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
@@ -82,7 +82,7 @@
                 android:gravity="center"
                 android:text="@string/Tiempo"
                 android:textColor="#000000"
-                android:textSize="24sp"/>
+                android:textSize="24sp" />
         </TableRow>
 
         <TableRow
@@ -90,35 +90,44 @@
             android:layout_height="match_parent"
             android:gravity="center">
 
-            <TextView
+            <Chronometer
                 android:id="@+id/valueTiempo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textColor="#000000"
                 android:textSize="48sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
+
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
-                <Button
-                    android:id="@+id/buttonStart"
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_margin="20dp"
-                    android:text="@string/buttonStart" />
+            <Button
+                android:id="@+id/buttonStart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="@string/buttonStart" />
 
-                <Button
-                    android:id="@+id/buttonParar"
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_margin="20dp"
-                    android:text="@string/buttonStop" />
+            <Button
+                android:id="@+id/buttonPause"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="@string/buttonPause" />
+
+            <Button
+                android:id="@+id/buttonStop"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="@string/buttonStop" />
         </TableRow>
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

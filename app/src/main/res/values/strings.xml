@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Velocimetro GPS</string>
     <string name="buttonStart">Comenzar</string>
+    <string name="buttonPause">Pausa</string>
     <string name="buttonStop">Parar</string>
     <string name="Velocidad">Velocidad</string>
     <string name="Distancia">Distancia</string>
