@@ -22,11 +22,6 @@ public class HandlerGPS implements LocationListener {
 
         if (ultimaLocalizacion != null) {
             float distancia = ultimaLocalizacion.distanceTo(location);
-            Log.d("distancia", String.valueOf(distancia));
-            Log.d("latitud guardada", String.valueOf(ultimaLocalizacion.getLatitude()));
-            Log.d("longitud guardada", String.valueOf(ultimaLocalizacion.getLongitude()));
-            Log.d("latitud nueva", String.valueOf(location.getLatitude()));
-            Log.d("longitud nyueva", String.valueOf(location.getLongitude()));
             controller.actualizarDistancia(distancia);
             controller.actualizarLocalizacion(location);
         }
@@ -38,13 +33,4 @@ public class HandlerGPS implements LocationListener {
 
     }
 
-    @Override
-    public void onProviderEnabled(@NonNull String provider) {
-
-    }
-
-    @Override
-    public void onProviderDisabled(@NonNull String provider) {
-
-    }
 }

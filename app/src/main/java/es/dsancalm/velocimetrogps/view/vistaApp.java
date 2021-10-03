@@ -1,13 +1,16 @@
 package es.dsancalm.velocimetrogps.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -93,5 +96,22 @@ public class vistaApp extends AppCompatActivity {
         bigDecimal = bigDecimal.setScale(2, RoundingMode.HALF_UP);
         float velocidadRedondeada = bigDecimal.floatValue();
         this.textVelocidad.setText(String.valueOf(velocidadRedondeada) + " km/h");
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode,
+                permissions,
+                grantResults);
+
+
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                controller.start();
+            } else {
+                Toast.makeText(this, "La aplicacion no funcionara sin la ubicacion activada", Toast.LENGTH_SHORT).show();
+            }
+
     }
 }

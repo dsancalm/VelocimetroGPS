@@ -1,9 +1,13 @@
 package es.dsancalm.velocimetrogps.controller;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.SystemClock;
 import android.util.Log;
 import android.widget.Chronometer;
+
+import androidx.core.app.ActivityCompat;
 
 import es.dsancalm.velocimetrogps.handler.HandlerGPS;
 import es.dsancalm.velocimetrogps.services.ServicioLocalizacion;
@@ -42,11 +46,14 @@ public class Controller {
     }
 
     public void start() {
-        this.vista.startCronometro();
 
-        this.servicioLocalizacion = new ServicioLocalizacion(vista.getApplicationContext(), handlerGPS);
+            this.servicioLocalizacion = new ServicioLocalizacion(vista, handlerGPS);
+            if (this.servicioLocalizacion.isActive()){
+                this.vista.startCronometro();
+            }
+        }
 
-    }
+
 
     public void parar() {
         this.vista.pararCronometro();
