@@ -81,14 +81,14 @@ public class ServicioLocalizacion {
 
             alertDialog.setMessage("La localizacion GPS no esta activa. Activela en ajustes.");
 
-            alertDialog.setPositiveButton("Settings", new DialogInterface.OnClickListener() {
+            alertDialog.setPositiveButton("Ajustes", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog,int which) {
                     Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                     mContext.startActivity(intent);
                 }
             });
 
-            alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     Toast.makeText(mContext, "La aplicacion no funcionara sin la ubicacion activada", Toast.LENGTH_SHORT).show();
                     dialog.cancel();

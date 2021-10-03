@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
@@ -72,6 +73,7 @@ public class vistaApp extends AppCompatActivity {
         buttonComenzar.setEnabled(true);
         buttonPausar.setEnabled(false);
         buttonParar.setEnabled(false);
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     public void startCronometro(){
@@ -86,6 +88,7 @@ public class vistaApp extends AppCompatActivity {
         buttonComenzar.setEnabled(false);
         buttonPausar.setEnabled(true);
         buttonParar.setEnabled(true);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
     }
     public void pausarCronometro(){
