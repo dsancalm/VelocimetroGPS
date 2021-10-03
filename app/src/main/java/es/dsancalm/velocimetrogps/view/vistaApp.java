@@ -26,6 +26,11 @@ public class vistaApp extends AppCompatActivity {
     private TextView textVelocidad;
     private TextView textDistancia;
     private Chronometer chronoTiempo;
+    private Button buttonComenzar;
+
+
+    private Button buttonParar;
+    private Button buttonPausar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +40,9 @@ public class vistaApp extends AppCompatActivity {
         textDistancia = (TextView) findViewById(R.id.valueDistancia);
         chronoTiempo = (Chronometer) findViewById(R.id.valueTiempo);
 
-        Button buttonComenzar = (Button) findViewById(R.id.buttonStart);
-        Button buttonParar = (Button) findViewById(R.id.buttonStop);
-        Button buttonPausar = (Button) findViewById(R.id.buttonPause);
+        buttonComenzar = (Button) findViewById(R.id.buttonStart);
+        buttonParar = (Button) findViewById(R.id.buttonStop);
+        buttonPausar = (Button) findViewById(R.id.buttonPause);
 
         this.controller = new Controller(this);
 
@@ -64,8 +69,11 @@ public class vistaApp extends AppCompatActivity {
     public void pararCronometro(){
         isRunning = false;
         chronoTiempo.stop();
-
+        buttonComenzar.setEnabled(true);
+        buttonPausar.setEnabled(false);
+        buttonParar.setEnabled(false);
     }
+
     public void startCronometro(){
         if (isRunning){
             chronoTiempo.setBase(chronoTiempo.getBase() + SystemClock.elapsedRealtime() - lastPause);
@@ -75,10 +83,16 @@ public class vistaApp extends AppCompatActivity {
             isRunning = true;
         }
         chronoTiempo.start();
+        buttonComenzar.setEnabled(false);
+        buttonPausar.setEnabled(true);
+        buttonParar.setEnabled(true);
 
     }
     public void pausarCronometro(){
         lastPause = SystemClock.elapsedRealtime();
+        buttonComenzar.setEnabled(true);
+        buttonPausar.setEnabled(false);
+        buttonParar.setEnabled(true);
         chronoTiempo.stop();
 
     }
@@ -114,4 +128,6 @@ public class vistaApp extends AppCompatActivity {
             }
 
     }
+
+
 }

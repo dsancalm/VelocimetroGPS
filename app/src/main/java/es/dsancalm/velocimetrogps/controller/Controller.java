@@ -56,6 +56,8 @@ public class Controller {
 
 
     public void parar() {
+        this.distancia = 0;
+        this.actualizarDistancia(distancia);
         this.vista.pararCronometro();
         this.servicioLocalizacion.pararGPS();
 
