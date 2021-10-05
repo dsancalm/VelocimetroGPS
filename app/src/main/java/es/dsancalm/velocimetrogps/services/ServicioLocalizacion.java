@@ -59,8 +59,14 @@ public class ServicioLocalizacion {
 
     public ServicioLocalizacion(Context context, LocationListener handlerGPS) {
         this.mContext = context;
-        locationManager = (LocationManager) mContext.getSystemService(LOCATION_SERVICE);
-        isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        this.locationManager = (LocationManager) mContext.getSystemService(LOCATION_SERVICE);
+        this.isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        this.handlerGPS = handlerGPS;
+
+
+
+    }
+    public void startGPS() {
         if (isGPSEnabled){
             if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions((Activity) mContext, new String[] { Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION }, 1);
@@ -70,7 +76,7 @@ public class ServicioLocalizacion {
                         LocationManager.GPS_PROVIDER,
                         MIN_TIME_BW_UPDATES,
                         MIN_DISTANCE_CHANGE_FOR_UPDATES, handlerGPS);
-                this.handlerGPS = handlerGPS;
+
                 isActive = true;
             }
         }
@@ -98,19 +104,18 @@ public class ServicioLocalizacion {
             // Showing Alert Message
             alertDialog.show();
         }
-
-
-
     }
 
 
     public void pararGPS() {
         if (locationManager != null) {
             locationManager.removeUpdates(handlerGPS);
+            isActive = false;
         }
     }
 
     public boolean isActive() {
+
         return isActive;
     }
 

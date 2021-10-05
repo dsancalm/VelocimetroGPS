@@ -24,6 +24,7 @@ public class Controller {
 
         this.vista = vistaApp;
         this.handlerGPS = new HandlerGPS(this);
+        this.servicioLocalizacion = new ServicioLocalizacion(vista, handlerGPS);
     }
 
     public Location obtenerUltimaLocalizacion() {
@@ -46,17 +47,17 @@ public class Controller {
     }
 
     public void start() {
-
-            this.servicioLocalizacion = new ServicioLocalizacion(vista, handlerGPS);
-            if (this.servicioLocalizacion.isActive()){
-                this.vista.startCronometro();
-            }
+        this.servicioLocalizacion.startGPS();
+        if (this.servicioLocalizacion.isActive()) {
+            this.vista.startCronometro();
         }
+    }
 
 
 
     public void parar() {
         this.distancia = 0;
+        this.ultimaLocalizacion = null;
         this.actualizarDistancia(distancia);
         this.vista.pararCronometro();
         this.servicioLocalizacion.pararGPS();
@@ -65,6 +66,8 @@ public class Controller {
     }
 
     public void pausar() {
+        this.ultimaLocalizacion = null;
+        this.vista.setVelocidad(0);
         this.vista.pausarCronometro();
         this.servicioLocalizacion.pararGPS();
 
