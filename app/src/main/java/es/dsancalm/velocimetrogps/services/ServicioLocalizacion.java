@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 
+import es.dsancalm.velocimetrogps.R;
 import es.dsancalm.velocimetrogps.handler.HandlerGPS;
 
 public class ServicioLocalizacion {
@@ -83,20 +84,20 @@ public class ServicioLocalizacion {
         else {
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
 
-            alertDialog.setTitle("Ajustes GPS");
+            alertDialog.setTitle(R.string.AjustesGPS);
 
-            alertDialog.setMessage("La localizacion GPS no esta activa. Activela en ajustes.");
+            alertDialog.setMessage(R.string.GPSNoAjustes);
 
-            alertDialog.setPositiveButton("Ajustes", new DialogInterface.OnClickListener() {
+            alertDialog.setPositiveButton(R.string.Ajustes, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog,int which) {
                     Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                     mContext.startActivity(intent);
                 }
             });
 
-            alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            alertDialog.setNegativeButton(R.string.Cancelar, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                    Toast.makeText(mContext, "La aplicacion no funcionara sin la ubicacion activada", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, R.string.GPSNoActivo, Toast.LENGTH_SHORT).show();
                     dialog.cancel();
                 }
             });

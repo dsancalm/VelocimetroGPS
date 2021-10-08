@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Velocimetro GPS</string>
+    <string name="buttonStart">Comenzar</string>
+    <string name="buttonPause">Pausar</string>
+    <string name="buttonStop">Parar</string>
+    <string name="Velocidad">Velocidad</string>
+    <string name="Distancia">Distancia</string>
+    <string name="Tiempo">Tiempo</string>
+    <string name="AjustesGPS">Ajustes GPS</string>
+    <string name="Ajustes">Ajustes</string>
+    <string name="GPSNoAjustes">La localizacion GPS no esta activa. Activela en ajustes.</string>
+    <string name="Cancelar">Cancelar</string>
+    <string name="GPSNoActivo">La aplicacion no funcionara sin la ubicacion activada</string>
+</resources>

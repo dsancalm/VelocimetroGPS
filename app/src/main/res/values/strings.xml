@@ -1,9 +1,14 @@
 <resources>
-    <string name="app_name">Velocimetro GPS</string>
-    <string name="buttonStart">Comenzar</string>
-    <string name="buttonPause">Pausa</string>
-    <string name="buttonStop">Parar</string>
-    <string name="Velocidad">Velocidad</string>
-    <string name="Distancia">Distancia</string>
-    <string name="Tiempo">Tiempo</string>
+    <string name="app_name">GPS Velocimeter</string>
+    <string name="buttonStart">Start</string>
+    <string name="buttonPause">Pause</string>
+    <string name="buttonStop">Stop</string>
+    <string name="Velocidad">Speed</string>
+    <string name="Distancia">Distance</string>
+    <string name="Tiempo">Time</string>
+    <string name="AjustesGPS">GPS Settings</string>
+    <string name="Ajustes">Settings</string>
+    <string name="GPSNoAjustes">GPS location not activated. Activate it.</string>
+    <string name="Cancelar">Cancel</string>
+    <string name="GPSNoActivo">The App won´t work without location</string>
 </resources>
