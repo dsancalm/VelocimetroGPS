@@ -11,5 +11,5 @@
     <string name="Ajustes">Ajustes</string>
     <string name="GPSNoAjustes">La localizacion GPS no esta activa. Activela en ajustes.</string>
     <string name="Cancelar">Cancelar</string>
-    <string name="GPSNoActivo">La aplicacion no funcionara sin la ubicacion activada</string>
+    <string name="GPSNoActivo">La aplicacion no funcionara sin la ubicación activada</string>
 </resources>

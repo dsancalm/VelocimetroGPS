@@ -1,13 +1,8 @@
 package es.dsancalm.velocimetrogps.controller;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.os.SystemClock;
-import android.util.Log;
-import android.widget.Chronometer;
 
-import androidx.core.app.ActivityCompat;
+import android.location.Location;
+
 
 import es.dsancalm.velocimetrogps.handler.HandlerGPS;
 import es.dsancalm.velocimetrogps.services.ServicioLocalizacion;
@@ -17,13 +12,13 @@ public class Controller {
 
     private Location ultimaLocalizacion;
     private float distancia;
-    private vistaApp vista;
-    private ServicioLocalizacion servicioLocalizacion;
-    private HandlerGPS handlerGPS;
+    private final vistaApp vista;
+    private final ServicioLocalizacion servicioLocalizacion;
+
     public Controller(vistaApp vistaApp) {
 
         this.vista = vistaApp;
-        this.handlerGPS = new HandlerGPS(this);
+        HandlerGPS handlerGPS = new HandlerGPS(this);
         this.servicioLocalizacion = new ServicioLocalizacion(vista, handlerGPS);
     }
 

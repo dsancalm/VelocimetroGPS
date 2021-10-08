@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Chronometer;
@@ -47,24 +46,9 @@ public class vistaApp extends AppCompatActivity {
 
         this.controller = new Controller(this);
 
-        buttonComenzar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                controller.start();
-            }
-        });
-        buttonParar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                controller.parar();
-            }
-        });
-        buttonPausar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                controller.pausar();
-            }
-        });
+        buttonComenzar.setOnClickListener(view -> controller.start());
+        buttonParar.setOnClickListener(view -> controller.parar());
+        buttonPausar.setOnClickListener(view -> controller.pausar());
     }
 
     public void pararCronometro(){
@@ -105,14 +89,16 @@ public class vistaApp extends AppCompatActivity {
         BigDecimal bigDecimal = new BigDecimal(Float.toString(distancia));
         bigDecimal = bigDecimal.setScale(2, RoundingMode.HALF_UP);
         float distanciaRedondeada = bigDecimal.floatValue();
-        this.textDistancia.setText(String.valueOf(distanciaRedondeada) + " m");
+        String res = distanciaRedondeada + " m";
+        this.textDistancia.setText(res);
     }
 
     public void setVelocidad(float velocidad) {
         BigDecimal bigDecimal = new BigDecimal(Float.toString(velocidad));
         bigDecimal = bigDecimal.setScale(2, RoundingMode.HALF_UP);
         float velocidadRedondeada = bigDecimal.floatValue();
-        this.textVelocidad.setText(String.valueOf(velocidadRedondeada) + " km/h");
+        String res = velocidadRedondeada + " km/h";
+        this.textVelocidad.setText(res);
     }
 
     @Override

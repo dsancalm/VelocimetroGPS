@@ -2,7 +2,7 @@ package es.dsancalm.velocimetrogps.handler;
 
 import android.location.Location;
 import android.location.LocationListener;
-import android.util.Log;
+
 
 import androidx.annotation.NonNull;
 
@@ -23,13 +23,12 @@ public class HandlerGPS implements LocationListener {
         if (ultimaLocalizacion != null) {
             float distancia = ultimaLocalizacion.distanceTo(location);
             controller.actualizarDistancia(distancia);
-            controller.actualizarLocalizacion(location);
         }
         else {
 
             controller.actualizarDistancia(0);
-            controller.actualizarLocalizacion(location);
         }
+        controller.actualizarLocalizacion(location);
 
     }
 
