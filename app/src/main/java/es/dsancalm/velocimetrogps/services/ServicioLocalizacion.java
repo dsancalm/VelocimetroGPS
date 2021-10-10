@@ -42,13 +42,13 @@ public class ServicioLocalizacion {
     public ServicioLocalizacion(Context context, LocationListener handlerGPS) {
         this.mContext = context;
         this.locationManager = (LocationManager) mContext.getSystemService(LOCATION_SERVICE);
-        this.isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
         this.handlerGPS = handlerGPS;
 
 
 
     }
     public void startGPS() {
+        this.isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
         if (isGPSEnabled){
             if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions((Activity) mContext, new String[] { Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION }, 1);
