@@ -14,6 +14,7 @@ public class Controller {
     private float distancia;
     private final vistaApp vista;
     private final ServicioLocalizacion servicioLocalizacion;
+    private int paused = 0;
 
     public Controller(vistaApp vistaApp) {
 
@@ -44,6 +45,11 @@ public class Controller {
     }
 
     public void start() {
+        if(this.distancia != 0 && this.paused == 0){
+            this.distancia = 0;
+            this.actualizarDistancia(distancia);
+        }
+        paused = 0;
         this.servicioLocalizacion.startGPS();
         if (this.servicioLocalizacion.isActive()) {
             this.vista.startCronometro();
@@ -53,13 +59,10 @@ public class Controller {
 
 
     public void parar() {
-        this.distancia = 0;
         this.ultimaLocalizacion = null;
-        this.actualizarDistancia(distancia);
+        this.vista.setVelocidad(0.0f);
         this.vista.pararCronometro();
         this.servicioLocalizacion.pararGPS();
-
-
     }
 
     public void pausar() {
@@ -67,6 +70,7 @@ public class Controller {
         this.vista.setVelocidad(0);
         this.vista.pausarCronometro();
         this.servicioLocalizacion.pararGPS();
+        paused = 1;
 
     }
 }
