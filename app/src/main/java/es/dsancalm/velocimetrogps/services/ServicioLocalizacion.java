@@ -29,7 +29,7 @@ public class ServicioLocalizacion {
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 1; // 1 meter
 
     // The minimum time between updates in milliseconds
-    private static final long MIN_TIME_BW_UPDATES = 1000 * 3; // 3 seconds
+    private static final long MIN_TIME_BW_UPDATES = 1000; // 1 second
 
     // Declaring a Location Manager
     protected LocationManager locationManager;

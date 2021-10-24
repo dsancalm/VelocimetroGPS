@@ -30,9 +30,11 @@ public class Controller {
     public void actualizarDistancia(float distancia) {
         this.distancia += distancia;
         this.vista.setDistancia(this.distancia);
-        float velocidad = distancia; //metros/ cada 3 s
-        velocidad = velocidad * 1200; // metros / cada hora
+        float velocidad = distancia; //metros/ cada 1 s
+        velocidad = velocidad * 3600; // metros / cada hora
         velocidad = velocidad / 1000; // km/h
+        if (velocidad < 1.0f)
+            velocidad = 0.0f;
         this.vista.setVelocidad(velocidad);
     }
 
